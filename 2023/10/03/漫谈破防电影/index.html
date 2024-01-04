@@ -51,7 +51,7 @@
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="">
   <input class="theme_blog_path" value="">
-  <input id="theme_shortcut" value="true" />
+  <input id="theme_shortcut" value="false" />
   <input id="theme_highlight_on" value="true" />
   <input id="theme_code_copy" value="true" />
 </div>
@@ -170,7 +170,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(10)</small>
+                <small>(11)</small>
             
         </div>
     </li>
@@ -182,7 +182,7 @@
         <div data-rel="电影">
             <i class="fold iconfont icon-right"></i>
             电影
-            <small>(6)</small>
+            <small>(7)</small>
         </div>
         
             <ul class="sub hide">
@@ -192,7 +192,7 @@
         <div data-rel="电影&lt;---&gt;好片推荐">
             
             好片推荐
-            <small>(1)</small>
+            <small>(2)</small>
         </div>
         
     </li>
@@ -304,8 +304,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="10">
-<input type="hidden" id="yelog_site_word_count" value="23.5k">
+<input type="hidden" id="yelog_site_posts_number" value="11">
+<input type="hidden" id="yelog_site_word_count" value="24.1k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -339,9 +339,9 @@
         <div class="title-list">
     <div class="right-top">
         <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <i class="iconfont icon-search" data-title="搜索"></i>
             <div class="right-title">全部文章</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图"></i>
         </div>
         <div id="search-panel">
             <i class="iconfont icon-left" data-title="返回"></i>
@@ -384,12 +384,29 @@
                 <i class="iconfont icon-tag"></i><a>月度电影小结</a>
             </li>
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>private</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Taylor Swift</a>
+            </li>
+        
     </div>
 
 </div>
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 电影 好片推荐 "
+           href="/2024/01/04/Taylor-The-Eras-Tour/"
+           data-tag="好片推荐,Taylor Swift"
+           data-author="" >
+            <span class="post-title" title="泰勒·斯威夫特：时代巡回演唱会">泰勒·斯威夫特：时代巡回演唱会</span>
+            <span class="post-date" title="2024-01-04 16:03:00">2024/01/04</span>
+        </a>
         
         
         <a  class="全部文章 电影 年度电影总结 "
@@ -466,7 +483,7 @@
         
         <a  class="全部文章 杂谈 "
            href="/2023/07/31/7-31%E6%9D%82%E8%B0%88/"
-           data-tag=""
+           data-tag="private"
            data-author="" >
             <span class="post-title" title="7.31杂谈">7.31杂谈</span>
             <span class="post-date" title="2023-07-31 23:25:00">2023/07/31</span>
@@ -491,7 +508,7 @@
 
     </div>
     <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
+        <div class="semicircle" data-title="切换全屏">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
@@ -698,10 +715,6 @@
 </article>
 
 
-<p>
-    <a  class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 
 
@@ -742,36 +755,11 @@
 
     </div>
     <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
     </div>
 </div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close" onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>喜欢就点赞,疼爱就打赏</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.png"
-                 class="alipay"
-                 title="扫码支持">
-            <img src="/img/weixin.png"
-                 class="weixin"
-                 title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked
-                            value="alipay">支付宝</label></span><span><label><input type="radio"
-                                                                                                          name="pay"
-                                                                                                          value="weixin">微信</label></span>
-    </div>
-</div>
-
 
 </body>
 <script src="/js/jquery.pjax.js?v=1.1.0" ></script>
@@ -786,14 +774,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -812,11 +792,6 @@
     }
 
     /*打赏页面隐藏与展示*/
-    
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
     
 
 </script>
